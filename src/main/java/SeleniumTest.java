@@ -23,7 +23,7 @@ public class SeleniumTest {
     public void firstTest() {
         driver.get("http://automationpractice.com/index.php");
         driver.findElement(By.xpath("/html/body/div[1]/div[1]/header/div[2]/div/div/nav/div[1]/a")).click();
-        driver.findElement(By.xpath("//*[@id=\"email_create\"]")).sendKeys("example215@example.com");
+        driver.findElement(By.xpath("//*[@id=\"email_create\"]")).sendKeys("example219@example.com");
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div[3]/div/div/div[1]/form/div/div[3]/button/span")).
                 click();
         WebDriverWait waiter = new WebDriverWait(driver,15);
@@ -52,6 +52,7 @@ public class SeleniumTest {
         WebDriverWait waiter2 = new WebDriverWait(driver,20);
         waiter2.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/div[2]/div/div[3]/div/div/form/div[4]/button/span")));
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div[3]/div/div/form/div[4]/button/span")).click();
+        driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div[3]/div/div/div[1]/ul/li[4]/a/span")).click();
 
 
     }
