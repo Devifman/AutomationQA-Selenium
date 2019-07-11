@@ -1,12 +1,9 @@
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class SeleniumTest {
@@ -26,7 +23,7 @@ public class SeleniumTest {
         driver.findElement(By.xpath("//*[@id=\"email_create\"]")).sendKeys("example219@example.com");
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div[3]/div/div/div[1]/form/div/div[3]/button/span")).
                 click();
-        WebDriverWait waiter = new WebDriverWait(driver,15);
+        WebDriverWait waiter = new WebDriverWait(driver, 15);
         waiter.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"id_gender1\"]")));
         driver.findElement(By.xpath("//*[@id=\"id_gender1\"]")).click();
         driver.findElement(By.xpath("//*[@id=\"customer_firstname\"]")).sendKeys("TeddyBoy");
@@ -49,7 +46,7 @@ public class SeleniumTest {
         driver.findElement(By.xpath("//*[@id=\"postcode\"]")).sendKeys("00000");
         driver.findElement(By.xpath("//*[@id=\"phone_mobile\"]")).sendKeys("8800131454");
         driver.findElement(By.xpath("//*[@id=\"alias\"]")).sendKeys("Myhouse");
-        WebDriverWait waiter2 = new WebDriverWait(driver,20);
+        WebDriverWait waiter2 = new WebDriverWait(driver, 20);
         waiter2.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[1]/div[2]/div/div[3]/div/div/form/div[4]/button/span")));
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div[3]/div/div/form/div[4]/button/span")).click();
         driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div[3]/div/div/div[1]/ul/li[4]/a/span")).click();
