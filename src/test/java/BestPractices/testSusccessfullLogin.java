@@ -1,6 +1,5 @@
 package BestPractices;
 
-import BestPractices.CreateAnAccountPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -11,7 +10,7 @@ public class testSusccessfullLogin {
 
         driver.get("http://automationpractice.com/index.php");
 
-        CreateAnAccountPage page = PageFactory.initElements(driver,CreateAnAccountPage.class);
+        CreateAnAccountTest page = PageFactory.initElements(driver, CreateAnAccountTest.class);
 
         page.SignUpWith("Franky@lol.pow");
     }
