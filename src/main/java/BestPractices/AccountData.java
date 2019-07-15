@@ -38,6 +38,8 @@ public class AccountData {
         return "55555";
     }
 
+
+
     public String getAddress1(){
         return "55 Avenue";
     }
@@ -55,6 +57,7 @@ public class AccountData {
     public String getZipCode(){
         return "11111";
     }
+    public String getCompany(){return "Google";}
 
     public String getMobilePhone(){
         return "89012348645";

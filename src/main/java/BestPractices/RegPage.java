@@ -140,9 +140,9 @@ public class RegPage {
     public void setCity(String cityName){
         cityField.sendKeys(cityName);
     }
-    public void setState(){
+    public void setState(String userState){
         Select stateName = new Select(state);
-        stateName.selectByValue("1");
+        stateName.selectByValue(String.valueOf(userState));
     }
 
     public void setZipCode(String zip){
