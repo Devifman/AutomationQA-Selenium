@@ -7,6 +7,7 @@ public class AccountData {
     private String firstName;
     private String lastName;
     private String password;
+    private String email;
     private String date;
     private String month;
     private String year;
@@ -21,7 +22,7 @@ public class AccountData {
     private String mobilePhone;
     private String alias;
 
-    @DataProvider(name = "RegData")
+    @DataProvider(name = "RegistrationData")
     public Object[][] dataProviderToUser() {
         return new Object[][]{
                 {new AccountData()}
@@ -37,6 +38,7 @@ public class AccountData {
     public String getPassword(){
         return "55555";
     }
+    public String getEmail(){return "lala@lolol.com";}
 
 
 
@@ -77,6 +79,7 @@ public class AccountData {
         this.address2 = getAddress2();
         this.city = getCity();
         this.state = getState();
+        this.email = getEmail();
     }
 
 

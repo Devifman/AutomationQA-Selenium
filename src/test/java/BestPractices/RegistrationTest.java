@@ -26,6 +26,7 @@ public class RegistrationTest {
     public void beforeClassMethod() {
         System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\drivers\\chromedriver.exe");
         driver = new ChromeDriver();
+        driver.get("http://automationpractice.com/index.php?controller=authentication&back=my-account");
         createAnAccountPage = PageFactory.initElements(driver, CreateAnAccountPage.class);
         regPage = PageFactory.initElements(driver, RegPage.class);
         LOGGER.info("Begining of the test");
@@ -44,7 +45,7 @@ public class RegistrationTest {
         LOGGER.info("First Name: " + ob.getFirstName());
         LOGGER.info("Last Name: "+ ob.getLastName());
         LOGGER.info("Password: "+ob.getPassword());
-        //createAnAccountPage.acceptAnEmail(ob.getEmail());
+        createAnAccountPage.acceptAnEmail(ob.getEmail());
         createAnAccountPage.CreateAnAccount();
         regPage.setGender();
         regPage.setFirstName(ob.getFirstName());
