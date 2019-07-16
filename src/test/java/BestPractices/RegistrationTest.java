@@ -47,6 +47,7 @@ public class RegistrationTest {
         LOGGER.info("Password: "+ob.getPassword());
         createAnAccountPage.acceptAnEmail(ob.getEmail());
         createAnAccountPage.CreateAnAccount();
+        waiter.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"id_gender1\"]")));
         regPage.setGender();
         regPage.setFirstName(ob.getFirstName());
         regPage.setSecondName(ob.getLastName());

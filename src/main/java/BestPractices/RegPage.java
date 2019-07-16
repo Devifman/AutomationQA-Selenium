@@ -85,7 +85,7 @@ public class RegPage {
     }
 
     public void setFirstName(String name){
-        firstNameField.sendKeys(name);//*[@id="company"]
+        firstNameField.sendKeys(name);
     }
 
 
