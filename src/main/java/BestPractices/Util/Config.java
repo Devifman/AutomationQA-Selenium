@@ -7,16 +7,17 @@ import java.util.Properties;
 
 public class Config {
     private static Properties prop = new Properties();
-    private  static FileInputStream input;
+    private static FileInputStream input;
+
     static {
-        try{
+        try {
             input = new FileInputStream(System.getProperty("user.dir") + "\\src\\main\\resources\\config.properties");
-        }catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
     }
 
-    public static String getUrl() throws IOException{
+    public static String getUrl() throws IOException {
         prop.load(input);
         return prop.getProperty("url");
     }

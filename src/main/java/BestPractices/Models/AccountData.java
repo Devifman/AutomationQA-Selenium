@@ -30,49 +30,60 @@ public class AccountData {
         };
     }
 
-    public String getFirstName(){
+    public String getFirstName() {
         return "Vasya";
     }
-    public String getLastName(){
+
+    public String getLastName() {
         return "Pupkin";
     }
-    public String getPassword(){
+
+    public String getPassword() {
         return "55555";
     }
-    public String getEmail(){return "Checker"+randMail+"@lolol.com";}
+
+    public String getEmail() {
+        return "Checker" + randMail + "@lolol.com";
+    }
 
 
-
-    public String getAddress1(){
+    public String getAddress1() {
         return "55 Avenue";
     }
-    public String getAddress2(){
+
+    public String getAddress2() {
         return "house 5 app 4";
     }
 
-    public String getCity(){
+    public String getCity() {
         return "Boston";
     }
-    public String getState(){
+
+    public String getState() {
         return "1";
     }
 
-    public String getZipCode(){
+    public String getZipCode() {
         return "11111";
     }
-    public String getCompany(){return "Google";}
 
-    public String getMobilePhone(){
+    public String getCompany() {
+        return "Google";
+    }
+
+    public String getMobilePhone() {
         return "89012348645";
     }
-    public String getHomePhone(){
+
+    public String getHomePhone() {
         return "222444";
     }
-    public String getAlias(){
+
+    public String getAlias() {
         return "This Is my Address";
     }
 
-    public AccountData(){
+    public AccountData() {
         this.firstName = getFirstName();
         this.lastName = getLastName();
         this.password = getPassword();

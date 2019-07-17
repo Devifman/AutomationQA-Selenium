@@ -28,19 +28,19 @@ public class RegistrationTest extends BaseTest {
 
     }
 
-    @Test (dataProvider = "RegistrationData",dataProviderClass = RegPage.class)
-    public void setCreateAnAccountError(AccountData ob){
+    @Test(dataProvider = "RegistrationData", dataProviderClass = RegPage.class)
+    public void setCreateAnAccountError(AccountData ob) {
         //LOGGER.info("email: "+ ob.getBadEmail);
         createAnAccountPage.CreateAnAccount();
 
 
     }
 
-    @Test(dataProvider= "RegistrationData",dataProviderClass = AccountData.class)
-    public void checkInfoTest(AccountData ob){
+    @Test(dataProvider = "RegistrationData", dataProviderClass = AccountData.class)
+    public void checkInfoTest(AccountData ob) {
         LOGGER.info("First Name: " + ob.getFirstName());
-        LOGGER.info("Last Name: "+ ob.getLastName());
-        LOGGER.info("Password: "+ob.getPassword());
+        LOGGER.info("Last Name: " + ob.getLastName());
+        LOGGER.info("Password: " + ob.getPassword());
         createAnAccountPage.acceptAnEmail(ob.getEmail());
         createAnAccountPage.CreateAnAccount();
         waiter.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"id_gender1\"]")));
