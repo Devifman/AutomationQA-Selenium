@@ -3,14 +3,10 @@ package BestPractices;
 import BestPractices.Models.AccountData;
 import BestPractices.Pages.CreateAnAccountPage;
 import BestPractices.Pages.RegPage;
-import BestPractices.Util.Config;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterClass;
+import org.testng.ITestContext;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -22,7 +18,7 @@ public class RegistrationTest extends BaseTest {
     private static final Logger LOGGER = Logger.getLogger(RegistrationTest.class.getName());
 
     @BeforeClass
-    public void beforeClassMethod() {
+    public void beforeClassMethod(ITestContext testContext) {
         createAnAccountPage = PageFactory.initElements(driver, CreateAnAccountPage.class);
         regPage = PageFactory.initElements(driver, RegPage.class);
 
