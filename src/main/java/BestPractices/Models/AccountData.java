@@ -1,4 +1,4 @@
-package BestPractices;
+package BestPractices.Models;
 
 import org.testng.annotations.DataProvider;
 
@@ -21,6 +21,7 @@ public class AccountData {
     private String homePhone;
     private String mobilePhone;
     private String alias;
+    private long randMail = System.currentTimeMillis();
 
     @DataProvider(name = "RegistrationData")
     public Object[][] dataProviderToUser() {
@@ -38,7 +39,7 @@ public class AccountData {
     public String getPassword(){
         return "55555";
     }
-    public String getEmail(){return "lala@lolol.com";}
+    public String getEmail(){return "Checker"+randMail+"@lolol.com";}
 
 
 

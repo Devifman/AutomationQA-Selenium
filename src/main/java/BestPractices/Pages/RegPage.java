@@ -1,9 +1,12 @@
-package BestPractices;
+package BestPractices.Pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.security.PublicKey;
 
@@ -12,6 +15,8 @@ public class RegPage {
 
     public RegPage(WebDriver driver){
         this.driver = driver;
+        WebDriverWait waiter = new WebDriverWait(driver,15);
+        waiter.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"id_gender1\"]")));
     }
     @FindBy(xpath = "//*[@id=\"id_gender1\"]")
     private WebElement genderTitle;
@@ -80,33 +85,33 @@ public class RegPage {
     @FindBy (xpath = "/html/body/div[1]/div[2]/div/div[3]/div/div/form/div[4]/button/span")
     private WebElement regButton;
 
-    public void setGender(){
+    public void selectGender(){
         genderTitle.click();
     }
 
-    public void setFirstName(String name){
+    public void selectFirstName(String name){
         firstNameField.sendKeys(name);
     }
 
 
-    public void setSecondName(String secondName){
+    public void selectSecondName(String secondName){
         lastNameField.sendKeys(secondName);
     }
-    public void setPass(String pass){
+    public void selectPass(String pass){
         passwordField.sendKeys(pass);
     }
 
-    public void setDateDay(){
+    public void selectDateDay(){
         Select day = new Select(days);
         day.selectByValue("1");
     }
 
-    public void setDateMonth(){
+    public void selectDateMonth(){
         Select month = new Select(months);
         month.selectByValue("1");
     }
 
-    public void setDateYear(){
+    public void selectDateYear(){
         Select year = new Select(years);
         year.selectByValue("1991");
     }
@@ -118,48 +123,48 @@ public class RegPage {
         offers.click();
     }
 
-    public void setFirstNameInAddressDiv(String nameAddress){
+    public void selectFirstNameInAddressDiv(String nameAddress){
         addressFirstNameField.sendKeys(nameAddress);
     }
 
-    public void setSecondNameInAddressDiv(String secondNameAddress){
+    public void selectSecondNameInAddressDiv(String secondNameAddress){
         addressLastNameField.sendKeys(secondNameAddress);
     }
 
-    public void setCompany(String companyName){
+    public void selectCompany(String companyName){
     companyField.sendKeys(companyName);
     }
-    public void setAddress1(String address1){
+    public void selectAddress1(String address1){
         addressField.sendKeys(address1);
     }
 
-    public void setAddress2(String address2){
+    public void selectAddress2(String address2){
         address2Field.sendKeys(address2);
     }
 
-    public void setCity(String cityName){
+    public void selectCity(String cityName){
         cityField.sendKeys(cityName);
     }
-    public void setState(String userState){
+    public void selectState(String userState){
         Select stateName = new Select(state);
         stateName.selectByValue(String.valueOf(userState));
     }
 
-    public void setZipCode(String zip){
+    public void selectZipCode(String zip){
         zipCodeField.sendKeys(zip);
     }
     public void setAdditoinalInfo(String info){
         additionalInfoField.sendKeys(info);
     }
 
-    public void setHomePhone(String homePhoneNumber){
+    public void selectHomePhone(String homePhoneNumber){
         homePhoneField.sendKeys(homePhoneNumber);
     }
 
-    public void setMobilePhone(String mobilePhoneNumber){
+    public void selectMobilePhone(String mobilePhoneNumber){
         mobilephoneField.sendKeys(mobilePhoneNumber);
     }
-    public void setAlias(String aliasAddress){
+    public void selectAlias(String aliasAddress){
         aliasAddressField.sendKeys(aliasAddress);
     }
 

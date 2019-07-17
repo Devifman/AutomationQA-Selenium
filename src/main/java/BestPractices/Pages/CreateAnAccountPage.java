@@ -1,9 +1,10 @@
-package BestPractices;
+package BestPractices.Pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -20,7 +21,7 @@ public CreateAnAccountPage(WebDriver driver){
 @FindBy(xpath ="//*[@id='email_create']")
 private WebElement emailAddressField;
 
-@FindBy(xpath = "/html/body/div[1]/div[2]/div/div[3]/div/div/div[1]/form/div/div[3]/button/span")
+@FindBy(xpath = "//form[@id='create-account_form']//span[1]")
 private WebElement createAnAccountButton;
 
 private WebElement findElement(By locator){
@@ -32,6 +33,7 @@ public CreateAnAccountPage acceptAnEmail(String email){
 }
 public RegPage CreateAnAccount(){
     createAnAccountButton.click();
+    RegPage regPage = PageFactory.initElements(driver,RegPage.class);
     return new RegPage(driver);
 }
 

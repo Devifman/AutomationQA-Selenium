@@ -3,14 +3,17 @@ package BestPractices;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
 import java.util.logging.Logger;
 
 public class BaseTest {
-    private static final Logger LOGGER = Logger.getLogger(RegistrationTest.class.getName());
-    WebDriver driver;
+    protected WebDriver driver;
+    protected WebDriverWait waiter;
+    protected static final Logger LOGGER = Logger.getLogger(RegistrationTest.class.getName());
+
 
     @BeforeClass
     public void beforeClassMethod() {
