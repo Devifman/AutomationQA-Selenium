@@ -10,11 +10,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.security.PublicKey;
 
-public class RegPage {
+public class RegPage extends BasePage {
     private WebDriver driver;
 
     public RegPage(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
         WebDriverWait waiter = new WebDriverWait(driver, 15);
         waiter.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"id_gender1\"]")));
     }
