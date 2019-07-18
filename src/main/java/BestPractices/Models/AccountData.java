@@ -41,6 +41,7 @@ public class AccountData {
     public String getPassword() {
         return "55555";
     }
+    String getEmail(){return "EmailChecker@cheker.com";}
 
     public String getEmail() {
         return "Checker" + randMail + "@lolol.com";
@@ -87,6 +88,7 @@ public class AccountData {
         this.firstName = getFirstName();
         this.lastName = getLastName();
         this.password = getPassword();
+        this.email = getEmail();
         this.address1 = getAddress1();
         this.address2 = getAddress2();
         this.city = getCity();
