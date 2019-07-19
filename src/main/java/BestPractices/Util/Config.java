@@ -21,5 +21,16 @@ public class Config {
         prop.load(input);
         return prop.getProperty("url");
     }
+    public static String getJS() throws IOException{
+        prop.load(input);
+        String dataJS = prop.getProperty("js");
+        return dataJS;
+    }
+    public static String getLog() throws IOException{
+        prop.load(input);
+        String log = prop.getProperty("log");
+        return log;
+    }
+
 
 }
