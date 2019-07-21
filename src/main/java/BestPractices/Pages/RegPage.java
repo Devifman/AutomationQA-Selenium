@@ -1,8 +1,10 @@
 package BestPractices.Pages;
 
+import BestPractices.Models.AccountData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import lombok.Getter;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -177,6 +179,28 @@ public class RegPage extends BasePage {
 
     public void acceptRegistration() {
         regButton.click();
+    }
+
+
+    public void registationOfAccount(AccountData accountData){
+        selectGender();
+        selectGender();
+        selectFirstName(accountData.getFirstName());
+        selectSecondName(accountData.getLastName());
+        selectPass(accountData.getPassword());
+        selectFirstNameInAddressDiv(accountData.getFirstName());
+        selectSecondNameInAddressDiv(accountData.getLastName());
+        selectCompany(accountData.getCompany());
+
+        selectAddress1(accountData.getAddress1());
+        selectAddress2(accountData.getAddress2());
+        selectCity(accountData.getCity());
+        selectState(accountData.getState());
+        selectZipCode(accountData.getZipCode());
+        selectHomePhone(accountData.getPhone());
+        selectMobilePhone(accountData.getMobile());
+        selectAlias(accountData.getAlias());
+        acceptRegistration();
     }
 
 
