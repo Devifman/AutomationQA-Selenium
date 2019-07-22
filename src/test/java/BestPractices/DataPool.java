@@ -9,30 +9,30 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
-public class DataPool {
-    Collection<AccountData> accounts;
+public class DataPool<T> {
+    Collection<T> accounts;
 
-    public void processDataFile( String filePath ){
+    public void processDataFile( String filePath,Class<T> tClass ){
 
-        accounts = new ArrayList<AccountData>();
+        accounts = new ArrayList<T>();
 
-        ObjectMapper objectMapper = new ObjectMapper();
+        ObjectMapper om = new ObjectMapper();
         try {
-            AccountData newAccount = objectMapper.readValue( new File( filePath ), AccountData.class );
+            T newAccount = om.readValue( new File( filePath ),tClass );
             accounts.add( newAccount );
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-    public Object[][] getData() {
+    public  Object[][] getData() {
 
         Object[][] data = new Object[ accounts.size() ][ 1 ];
 
-        Iterator<AccountData> it = accounts.iterator();
+        Iterator<T> iterator = accounts.iterator();
 
         int i = 0;
-        while( it.hasNext() ) {
-            data[ i ][ 0 ] = it.next();
+        while( iterator.hasNext() ) {
+            data[ i ][ 0 ] = iterator.next();
             i++;
         }
 

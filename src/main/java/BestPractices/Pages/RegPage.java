@@ -1,17 +1,15 @@
 package BestPractices.Pages;
 
 import BestPractices.Models.AccountData;
+import lombok.Data;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import lombok.Getter;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.security.PublicKey;
-
+@Data
 public class RegPage extends BasePage {
     private WebDriver driver;
 
@@ -87,6 +85,9 @@ public class RegPage extends BasePage {
 
     @FindBy(xpath = "/html/body/div[1]/div[2]/div/div[3]/div/div/form/div[4]/button/span")
     private WebElement regButton;
+
+    @FindBy (xpath = "//*[@id=\"colums\"]/div[1]")
+    private WebDriver wrongData;
 
     public void selectGender() {
         genderTitle.click();
@@ -181,9 +182,12 @@ public class RegPage extends BasePage {
         regButton.click();
     }
 
+    public String getWrongData(){
+        return wrongData.getTitle();
+    }
+
 
     public void registationOfAccount(AccountData accountData){
-        selectGender();
         selectGender();
         selectFirstName(accountData.getFirstName());
         selectSecondName(accountData.getLastName());
@@ -197,8 +201,8 @@ public class RegPage extends BasePage {
         selectCity(accountData.getCity());
         selectState(accountData.getState());
         selectZipCode(accountData.getZipCode());
-        selectHomePhone(accountData.getPhone());
-        selectMobilePhone(accountData.getMobile());
+        selectHomePhone(accountData.getHomePhone());
+        selectMobilePhone(accountData.getMobilePhone());
         selectAlias(accountData.getAlias());
         acceptRegistration();
     }

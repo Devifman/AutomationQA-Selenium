@@ -1,5 +1,7 @@
 package BestPractices.Pages;
 
+import BestPractices.Models.AccountData;
+import lombok.Data;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,7 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
+@Data
 public class CreateAnAccountPage {
     private WebDriver driver;
     private WebDriverWait waiter;
@@ -29,6 +31,15 @@ public class CreateAnAccountPage {
         return waiter.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
+    @FindBy(xpath = "//*[@id=\"email\"]")
+    private  WebElement loginEmail;
+
+    @FindBy(xpath = "//*[@id=\"passwd\"]")
+    private WebElement loginPassword;
+
+    @FindBy(xpath = "/html/body/div[1]/div[2]/div/div[3]/div/div/div[2]/form/div/p[2]/button/span")
+    private WebElement signIn;
+
     public CreateAnAccountPage acceptAnEmail(String email) {
         emailAddressField.sendKeys(email);
         return this;
@@ -38,6 +49,27 @@ public class CreateAnAccountPage {
         createAnAccountButton.click();
         RegPage regPage = PageFactory.initElements(driver, RegPage.class);
         return new RegPage(driver);
+    }
+
+    public void selectEmail(String email){
+        loginEmail.sendKeys(email);
+    }
+
+    public void selectPassword(String password){
+        loginPassword.sendKeys(password);
+    }
+
+    public void acceptLogin(){
+        signIn.click();
+    }
+
+    public void logIn(AccountData accountData){
+        {
+        selectEmail(accountData.getEmail());
+        selectPassword(accountData.getPassword());
+        acceptLogin();
+
+        }
     }
 
 }

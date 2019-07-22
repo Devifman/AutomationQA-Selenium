@@ -1,10 +1,14 @@
 package BestPractices.Pages;
 
 import BestPractices.Models.AccountData;
+import BestPractices.Util.Config;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.io.File;
+import java.io.IOException;
 import java.security.cert.X509Certificate;
 
 public class AddressesPage extends RegPage {
@@ -75,4 +79,18 @@ public class AddressesPage extends RegPage {
     public void clickSumbit(){
         sumbit.click();
     }
+
+
+
+    public void changeAddress(AccountData account) throws IOException{
+        ObjectMapper om = new ObjectMapper();
+        AccountData user = om.readValue( new File( Config.getJS() ), AccountData.class );
+
+        clickSumbit();
+        this.getAddressField().clear();
+        this.addressLine1Field.sendKeys(account.getAnotherAddress());
+    }
+
+
+
 }

@@ -1,10 +1,12 @@
 package BestPractices.Models;
 
 import lombok.Data;
+import lombok.Getter;
 import org.testng.annotations.DataProvider;
 @Data
 public class AccountData {
     private String gender;
+
     private String firstName;
     private String lastName;
     private String password;
@@ -24,12 +26,14 @@ public class AccountData {
     private String alias;
     private long randMail = System.currentTimeMillis();
     private String anotherFirstName;
+    private String anotherAddress;
 
 
     public AccountData() {
         this.email = "Checker" + randMail + "@lolol.com";
 
     }
+
 
 
 

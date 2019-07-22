@@ -1,5 +1,8 @@
 package BestPractices;
 
+import BestPractices.Models.AccountData;
+import BestPractices.Pages.CreateAnAccountPage;
+import BestPractices.Pages.RegPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

@@ -1,8 +1,12 @@
 package BestPractices.Pages;
 
+import BestPractices.Models.AccountData;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+
+import java.io.IOException;
 
 public class UserAccount extends BasePage {
     public UserAccount(WebDriver driver){
@@ -22,6 +26,17 @@ public class UserAccount extends BasePage {
     public void personalInformationClick(){
         personalInformation.click();
     }
+
+    public void addressEquals(){
+        addressClick();
+    }
+
+    public void personalInfoEquals(){
+        personalInformationClick();
+    }
+
+
+
 
 
 
