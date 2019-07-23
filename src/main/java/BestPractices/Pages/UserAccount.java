@@ -35,9 +35,4 @@ public class UserAccount extends BasePage {
         personalInformationClick();
     }
 
-
-
-
-
-
 }
