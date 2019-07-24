@@ -1,6 +1,8 @@
 package BestPractices;
 
 import BestPractices.Models.AccountData;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -10,14 +12,14 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 
 import java.util.HashMap;
-import java.util.logging.Logger;
+
 
 @Listeners (TestListener.class)
 
 public class BaseTest {
     protected WebDriver driver;
     protected WebDriverWait waiter;
-    protected static final Logger LOGGER = Logger.getLogger(RegistrationTest.class.getName());
+    protected static final Logger LOGGER = LogManager.getLogger(BaseTest.class);
     DataPool dataPool;
 
 

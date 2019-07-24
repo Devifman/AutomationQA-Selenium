@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-public class AddressesTest {
+public class AddressesChangeTest extends BaseTest {
 
     private CreateAnAccountPage createAnAccountPage;
     private RegPage regPage;
@@ -21,12 +21,19 @@ public class AddressesTest {
     @DataProvider(name = "addresses")
     public Object[][] dataProviderNewUser() {
         return DataPool.getData();
+    }
 
         @Test(dataProvider = "addresses")
-        public void testOfAddresess(AccountData ) throws IOException{
+        public void testOfAddresess(AccountData accountData ) throws IOException{
 createAnAccountPage = PageFactory.initElements(driver,CreateAnAccountPage.class);
-regPage = PageFactory.initElements(driver);
+regPage = PageFactory.initElements(driver,RegPage.class);
+userAccount = PageFactory.initElements(driver,UserAccount.class);
+addressesPage = PageFactory.initElements(driver,AddressesPage.class);
+createAnAccountPage.startOfRegistration(accountData);
+regPage.registationOfAccount(accountData);
+userAccount.addressClick();
+//addressesPage.
         }
 
-    }
+
 }

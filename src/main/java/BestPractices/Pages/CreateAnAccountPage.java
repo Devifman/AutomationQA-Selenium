@@ -70,6 +70,11 @@ public class CreateAnAccountPage {
         acceptLogin();
 
         }
-    }
 
+
+    }
+public void startOfRegistration(AccountData accountData){
+      acceptAnEmail(accountData.getEmail());
+      CreateAnAccount();
+}
 }

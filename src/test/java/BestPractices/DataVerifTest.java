@@ -8,6 +8,7 @@ import BestPractices.Pages.UserAccount;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 public class DataVerifTest extends BaseTest {
     private CreateAnAccountPage createAnAccountPage;
@@ -25,9 +26,14 @@ public class DataVerifTest extends BaseTest {
         regPage = PageFactory.initElements(driver,RegPage.class);
         userAccount = PageFactory.initElements(driver,UserAccount.class);
         myDataPage = PageFactory.initElements(driver,MyDataPage.class);
-        createAnAccountPage.logIn(accountData);
+        createAnAccountPage.startOfRegistration(accountData);
         regPage.registationOfAccount(accountData);
         userAccount.personalInformationClick();
+        SoftAssert softAssrtion = new SoftAssert();
+        softAssrtion.assertTrue(myDataPage.genderEquals(accountData));
+        softAssrtion.assertTrue(myDataPage.nameEquals(accountData));
+        softAssrtion.assertTrue(myDataPage.secondNameEquals(accountData));
+        softAssrtion.assertAll();
 
 
     }
