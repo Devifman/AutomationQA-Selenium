@@ -6,6 +6,7 @@ import BestPractices.Pages.CreateAnAccountPage;
 import BestPractices.Pages.RegPage;
 import BestPractices.Pages.UserAccount;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -20,7 +21,7 @@ public class AddressesChangeTest extends BaseTest {
 
     @DataProvider(name = "addresses")
     public Object[][] dataProviderNewUser() {
-        return DataPool.getData();
+        return dataPool.getData();
     }
 
         @Test(dataProvider = "addresses")
@@ -32,7 +33,9 @@ addressesPage = PageFactory.initElements(driver,AddressesPage.class);
 createAnAccountPage.startOfRegistration(accountData);
 regPage.registationOfAccount(accountData);
 userAccount.addressClick();
-//addressesPage.
+addressesPage.changeAddress(accountData);
+
+            Assert.assertEquals("Addresess - My Store",addressesPage.getTitle());
         }
 
 
