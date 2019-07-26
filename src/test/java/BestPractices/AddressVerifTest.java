@@ -28,7 +28,7 @@ public class AddressVerifTest extends BaseTest {
         userAccount = PageFactory.initElements(driver,UserAccount.class);
          addressesPage = PageFactory.initElements(driver,AddressesPage.class);
          createAnAccountPage.startOfRegistration(accountData);
-         regPage.registationOfAccount(accountData);
+         regPage.registrationOfAccount(accountData);
          userAccount.addressClick();
         SoftAssert softAssert = new SoftAssert();
         softAssert.assertTrue(addressesPage.firstNameEquals(accountData));

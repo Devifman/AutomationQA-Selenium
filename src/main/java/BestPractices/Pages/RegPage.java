@@ -187,8 +187,8 @@ public class RegPage extends BasePage {
     }
 
 
-    public void registationOfAccount(AccountData accountData){
-        selectGender();
+    public void registrationOfAccount(AccountData accountData){
+        selectGender()    ;
         selectFirstName(accountData.getFirstName());
         selectSecondName(accountData.getLastName());
         selectPass(accountData.getPassword());

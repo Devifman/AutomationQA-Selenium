@@ -31,7 +31,7 @@ regPage = PageFactory.initElements(driver,RegPage.class);
 userAccount = PageFactory.initElements(driver,UserAccount.class);
 addressesPage = PageFactory.initElements(driver,AddressesPage.class);
 createAnAccountPage.startOfRegistration(accountData);
-regPage.registationOfAccount(accountData);
+regPage.registrationOfAccount(accountData);
 userAccount.addressClick();
 addressesPage.changeAddress(accountData);
 

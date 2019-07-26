@@ -3,7 +3,6 @@ package BestPractices;
 import BestPractices.Models.AccountData;
 import BestPractices.Pages.*;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -27,7 +26,7 @@ return dataPool.getData();
         addressesPage = PageFactory.initElements(driver,AddressesPage.class);
         userAccount = PageFactory.initElements(driver,UserAccount.class);
         createAnAccountPage.logIn(accountData);
-        regPage.registationOfAccount(accountData);
+        regPage.registrationOfAccount(accountData);
         userAccount.personalInformationClick();
         //Assert.assertTrue(MyDataPage.changeInformation(accountData));
 

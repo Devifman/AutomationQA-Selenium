@@ -19,7 +19,7 @@ import java.util.HashMap;
 public class BaseTest {
     protected WebDriver driver;
     protected WebDriverWait waiter;
-    protected static final Logger LOGGER = LogManager.getLogger(BaseTest.class);
+    protected static final Logger LOGGER = LogManager.getLogger(RegistrationTest.class);
     DataPool dataPool;
 
 
@@ -27,7 +27,7 @@ public class BaseTest {
     public void beforeClassMethod(ITestContext testContext) {
         dataPool = new DataPool();
         HashMap<String,String> param = new HashMap<String, String>(testContext.getCurrentXmlTest().getAllParameters());
-        dataPool.processDataFile( param.get(System.getProperty("dataFile")), AccountData.class);
+        dataPool.processDataFile( param.get("dataFile"), AccountData.class);
         System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\drivers\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.get("http://automationpractice.com/index.php?controller=authentication&back=my-account");

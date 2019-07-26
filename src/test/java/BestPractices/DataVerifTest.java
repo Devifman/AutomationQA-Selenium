@@ -27,7 +27,7 @@ public class DataVerifTest extends BaseTest {
         userAccount = PageFactory.initElements(driver,UserAccount.class);
         myDataPage = PageFactory.initElements(driver,MyDataPage.class);
         createAnAccountPage.startOfRegistration(accountData);
-        regPage.registationOfAccount(accountData);
+        regPage.registrationOfAccount(accountData);
         userAccount.personalInformationClick();
         SoftAssert softAssrtion = new SoftAssert();
         softAssrtion.assertTrue(myDataPage.genderEquals(accountData));
