@@ -1,6 +1,6 @@
 {
-"firsname": "Peter",
-"lastname": "Johnson",
+"firstName": "Peter",
+"lastName": "Johnson",
   "email": "PeteJohn@mail.by",
   "password": "12345",
   "company": "FlowersSky",
@@ -8,8 +8,8 @@
   "address2": "house 4, app 12",
   "city": "Riverwood",
   "state": "5",
-  "zipcode": "00000",
-  "homephone": "321555211",
-  "mobilephone": "89092154256",
+  "zipCode": "00000",
+  "homePhone": "321555211",
+  "mobilePhone": "89092154256",
   "alias": "myhome"
 }

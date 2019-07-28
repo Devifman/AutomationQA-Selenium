@@ -41,6 +41,7 @@ public class CreateAnAccountPage {
     private WebElement signIn;
 
     public CreateAnAccountPage acceptAnEmail(String email) {
+        waiter.until(ExpectedConditions.elementToBeClickable(emailAddressField));
         emailAddressField.sendKeys(email);
         return this;
     }
@@ -74,6 +75,7 @@ public class CreateAnAccountPage {
 
     }
 public void startOfRegistration(AccountData accountData){
+
       acceptAnEmail(accountData.getEmail());
       CreateAnAccount();
 }

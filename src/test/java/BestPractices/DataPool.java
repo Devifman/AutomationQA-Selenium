@@ -18,8 +18,8 @@ public class DataPool<T> {
 
         ObjectMapper om = new ObjectMapper();
         try {
-            T newAccount = om.readValue( new File( filePath ),tClass );
-            accounts.add( newAccount );
+            T data = om.readValue( new File( "src\\test\\data\\data.json" ),tClass );
+            accounts.add( data );
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -5,7 +5,7 @@
 
 
     <test name="Information Edit" verbose="2">
-        <parameter name="JSon data" value="src/test/data/data.json"/>
+        <parameter name="JSon data" value="src/test/data/data2.json"/>
         <classes>
             <class name="BestPractices.RegistrationTest">
                 <methods>
