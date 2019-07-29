@@ -1,6 +1,8 @@
 package BestPractices.Pages;
 
 import BestPractices.Models.AccountData;
+import BestPractices.Models.AddressessData;
+import BestPractices.Models.UserData;
 import lombok.Data;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -9,9 +11,14 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.logging.Logger;
+
 @Data
 public class RegPage extends BasePage {
     private WebDriver driver;
+
+    //final static Logger LOGGER = Logger.getLogger(RegPage.class);
 
     public RegPage(WebDriver driver) {
         super(driver);
@@ -187,23 +194,23 @@ public class RegPage extends BasePage {
     }
 
 
-    public void registrationOfAccount(AccountData accountData){
+    public void registrationOfAccount(UserData userData, AccountData accountData, AddressessData addressessData){
         selectGender()    ;
-        selectFirstName(accountData.getFirstName());
-        selectSecondName(accountData.getLastName());
+        selectFirstName(userData.getFirstName());
+        selectSecondName(userData.getLastName());
         selectPass(accountData.getPassword());
-        selectFirstNameInAddressDiv(accountData.getFirstName());
-        selectSecondNameInAddressDiv(accountData.getLastName());
-        selectCompany(accountData.getCompany());
+        selectFirstNameInAddressDiv(userData.getFirstName());
+        selectSecondNameInAddressDiv(userData.getLastName());
+        selectCompany(addressessData.getCompany());
 
-        selectAddress1(accountData.getAddress1());
-        selectAddress2(accountData.getAddress2());
-        selectCity(accountData.getCity());
-        selectState(accountData.getState());
-        selectZipCode(accountData.getZipCode());
-        selectHomePhone(accountData.getHomePhone());
-        selectMobilePhone(accountData.getMobilePhone());
-        selectAlias(accountData.getAlias());
+        selectAddress1(addressessData.getAddress1());
+        selectAddress2(addressessData.getAddress2());
+        selectCity(addressessData.getCity());
+        selectState(addressessData.getState());
+        selectZipCode(addressessData.getZipCode());
+        selectHomePhone(addressessData.getHomePhone());
+        selectMobilePhone(addressessData.getMobilePhone());
+        selectAlias(addressessData.getAlias());
         acceptRegistration();
     }
 

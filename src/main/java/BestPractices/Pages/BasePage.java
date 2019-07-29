@@ -18,6 +18,9 @@ public class BasePage {
     @FindBy(xpath = "/html/body/div[1]/div[1]/header/div[2]/div/div/nav/div[2]/a")
     private WebElement logOut;
 
+    @FindBy(xpath = "/html/body/div[1]/div[1]/header/div[2]/div/div/nav/div[1]/a/span")
+    private WebElement userAccount;
+
     public void clickLogIn() {
         logIn.click();
     }
@@ -28,6 +31,10 @@ public class BasePage {
 
     public String getTitle() {
         return driver.getTitle();
+    }
+
+    public void clickAccount(){
+        userAccount.click();
     }
 
 }

@@ -1,32 +1,21 @@
 package BestPractices.Models;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
-import org.testng.annotations.DataProvider;
-@Data
-public class AccountData {
-    private String gender;
 
-    private String firstName;
-    private String lastName;
+import java.util.ArrayList;
+
+@Data
+@AllArgsConstructor
+public class AccountData {
     private String password;
     private String email;
-    private String date;
-    private String month;
-    private String year;
-    private String company;
-    private String address1;
-    private String address2;
-    private String city;
-    private String state;
-    private String zipCode;
-    private String info;
-    private String homePhone;
-    private String mobilePhone;
-    private String alias;
+
     private long randMail = System.currentTimeMillis();
-    private String anotherFirstName;
-    private String anotherAddress;
+//    private String anotherFirstName;
+//    private String anotherAddress;
+    private ArrayList<AddressessData> adderesses = new ArrayList<>();
+    private UserData userData;
 
 
     public AccountData() {
