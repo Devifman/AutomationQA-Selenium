@@ -18,7 +18,7 @@ static Logger LOGGER = Logger.getLogger(MyDataPage.class);
 //    private String anotherFirstName;
 //    private String anotherAddress;
     private UserData userData;
-    private ArrayList<AddressessData> addresses = new ArrayList<>();
+    private ArrayList<AddressessData> addresses = new ArrayList <>();
 
 
 
@@ -39,6 +39,11 @@ static Logger LOGGER = Logger.getLogger(MyDataPage.class);
             return i;
         }
         return 0;
+    }
+
+    public int compareToString(AddressessData comparedWith)
+    {
+        return this.toString().compareTo(comparedWith.toString());
     }
 
 

@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 
 public class AddressessData {
+    private String addressFirstName;
+    private String addressLastName;
     private String company;
     private String address1;
     private String address2;
