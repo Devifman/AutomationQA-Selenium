@@ -18,5 +18,10 @@ public class AddressessData {
     private String city;
     private String state;
     private String zipCode;
+    private String country;
+
+    public int compareTo(AddressessData comparedWith){
+        return this.toString().compareTo(comparedWith.toString());
+    }
 
 }

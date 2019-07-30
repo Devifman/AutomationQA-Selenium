@@ -1,218 +1,144 @@
 package BestPractices.Pages;
 
 import BestPractices.Models.AccountData;
-import BestPractices.Models.AddressessData;
-import BestPractices.Models.UserData;
 import lombok.Data;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.logging.Logger;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 public class RegPage extends BasePage {
-    private WebDriver driver;
-
-    //final static Logger LOGGER = Logger.getLogger(RegPage.class);
-
-    public RegPage(WebDriver driver) {
+    public RegPage (WebDriver driver) {
         super(driver);
-        WebDriverWait waiter = new WebDriverWait(driver, 15);
-        waiter.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"id_gender1\"]")));
     }
+    private ArrayList<WebElement> elements = new ArrayList<>();
+    private ArrayList<String> errors = new ArrayList<>();
+    @FindBy(css = "div.alert li")
+    List<WebElement> userErrors;
 
-    @FindBy(xpath = "//*[@id=\"id_gender1\"]")
-    private WebElement genderTitle;
+    @FindBy(xpath = "//input[@id='id_gender1']")
+    private WebElement gender;
 
-    @FindBy(xpath = "//*[@id=\"customer_firstname\"]")
-    private WebElement firstNameField;
+    @FindBy(xpath = "//input[@id='customer_firstname']")
+    private WebElement firstName;
 
     @FindBy(xpath = "//*[@id=\"customer_lastname\"]")
-    private WebElement lastNameField;
+    private WebElement lastName;
 
-    @FindBy(xpath = "//*[@id=\"passwd\"]")
-    private WebElement passwordField;
+    @FindBy(xpath = "//input[@id='email']")
+    private WebElement email;
 
-    @FindBy(xpath = "//*[@id=\"days\"]")
-    private WebElement days;
+    @FindBy(xpath = "//input[@id='passwd']")
+    private WebElement password;
 
-    @FindBy(xpath = "//*[@id=\"months\"]")
-    private WebElement months;
+    @FindBy(xpath = "//select[@id='days']")
+    private WebElement day;
 
-    @FindBy(xpath = "//*[@id=\"years\"]")
-    private WebElement years;
+    @FindBy(xpath = "//select[@id='months']")
+    private WebElement month;
 
-    @FindBy(xpath = "//*[@id=\"newsletter\"]")
-    private WebElement newsletter;
+    @FindBy(xpath = "//select[@id='years']")
+    private WebElement year;
 
-    @FindBy(xpath = "//*[@id=\"optin\"]")
-    private WebElement offers;
 
-    @FindBy(xpath = "//*[@id=\"firstname\"]")
-    private WebElement addressFirstNameField;
+    @FindBy(xpath = "//input[@id='firstname']")
+    private WebElement firstNameAddress;
 
-    @FindBy(xpath = "//*[@id=\"lastname\"]")
-    private WebElement addressLastNameField;
+    @FindBy(xpath = " //input[@id='lastname']")
+    private WebElement lastNameAddress;
+
+    @FindBy(xpath = "//input[@id='company']")
+    private WebElement company;
 
     @FindBy(xpath = "//*[@id=\"address1\"]")
-    private WebElement addressField;
+    private WebElement adress1;
 
     @FindBy(xpath = "//*[@id=\"address2\"]")
-    private WebElement address2Field;
+    private WebElement adress2;
 
     @FindBy(xpath = "//*[@id=\"city\"]")
-    private WebElement cityField;
+    private WebElement city;
 
-    @FindBy(xpath = "//*[@id=\"id_state\"]")
+    @FindBy(xpath = "//select[@id='id_state']")
     private WebElement state;
 
-    @FindBy(xpath = "//*[@id=\"postcode\"]")
-    private WebElement zipCodeField;
+    @FindBy(xpath = "//input[@id='postcode']")
+    private WebElement zipCode;
 
+    @FindBy(xpath = "//select[@id='id_country']")
+    private WebElement country;
 
     @FindBy(xpath = "//*[@id=\"other\"]")
-    private WebElement additionalInfoField;
+    private WebElement additionalInformation;
 
     @FindBy(xpath = "//*[@id=\"phone\"]")
-    private WebElement homePhoneField;
+    private WebElement homePhone;
 
     @FindBy(xpath = "//*[@id=\"phone_mobile\"]")
-    private WebElement mobilephoneField;
+    private WebElement mobilePhone;
 
     @FindBy(xpath = "//*[@id=\"alias\"]")
-    private WebElement aliasAddressField;
+    private WebElement alias;
 
-    @FindBy(xpath = "//*[@id=\"company\"]")
-    private WebElement companyField;
-
-    @FindBy(xpath = "/html/body/div[1]/div[2]/div/div[3]/div/div/form/div[4]/button/span")
+    @FindBy(xpath = "//*[@id=\"submitAccount\"]/span")
     private WebElement regButton;
 
-    @FindBy (xpath = "//*[@id=\"colums\"]/div[1]")
-    private WebDriver wrongData;
+    @FindBy(xpath = "//*[@id=\"columns\"]/div[1]")
+    private WebElement wrongData;
 
-    public void selectGender() {
-        genderTitle.click();
+    public void fillPageElementsList(){
+        elements.add(gender);
+        elements.add(firstName);
+        elements.add(lastName);
+        elements.add(email);
+        elements.add(password);
+        elements.add(day);
+        elements.add(month);
+        elements.add(year);
+        elements.add(firstNameAddress);
+        elements.add(lastNameAddress);
+        elements.add(company);
+        elements.add(adress1);
+        elements.add(adress2);
+        elements.add(city);
+        elements.add(state);
+        elements.add(zipCode);
+        elements.add(country);
+        elements.add(additionalInformation);
+        elements.add(homePhone);
+        elements.add(mobilePhone);
+        elements.add(alias);
+        elements.add(regButton);
     }
+public void CreateOfAccount(AccountData accountData){
+accountData.getUserData().getGender();
+fillForm(firstName,accountData.getUserData().getFirstName());
+fillForm(lastName,accountData.getUserData().getLastName());
+fillForm(email,accountData.getEmail());
+fillForm(lastName,accountData.getEmail());
+valueOfSelect(day,accountData.getUserData().getDate());
+valueOfSelect(month,accountData.getUserData().getMonth());
+valueOfSelect(year,accountData.getUserData().getYear());
+fillForm(company,accountData.getAddresses().get(0).getCompany());
+fillForm(adress1,accountData.getAddresses().get(0).getAddress1());
+fillForm(adress2,accountData.getAddresses().get(0).getAddress2());
+fillForm(city,accountData.getAddresses().get(0).getCity());
+selectTextable(state,accountData.getAddresses().get(0).getState());
+fillForm(zipCode,accountData.getAddresses().get(0).getZipCode());
+fillForm(country,accountData.getAddresses().get(0).getCountry());
+fillForm(additionalInformation,accountData.getAddresses().get(0).getInfo());
+fillForm(homePhone,accountData.getAddresses().get(0).getHomePhone());
+fillForm(mobilePhone,accountData.getAddresses().get(0).getMobilePhone());
+regButton.click();
 
-    public void selectFirstName(String name) {
-        firstNameField.sendKeys(name);
-    }
-
-
-    public void selectSecondName(String secondName) {
-        lastNameField.sendKeys(secondName);
-    }
-
-    public void selectPass(String pass) {
-        passwordField.sendKeys(pass);
-    }
-
-    public void selectDateDay() {
-        Select day = new Select(days);
-        day.selectByValue("1");
-    }
-
-    public void selectDateMonth() {
-        Select month = new Select(months);
-        month.selectByValue("1");
-    }
-
-    public void selectDateYear() {
-        Select year = new Select(years);
-        year.selectByValue("1991");
-    }
-
-    public void addNewsLetter() {
-        newsletter.click();
-    }
-
-    public void addOffers() {
-        offers.click();
-    }
-
-    public void selectFirstNameInAddressDiv(String nameAddress) {
-        addressFirstNameField.sendKeys(nameAddress);
-    }
-
-    public void selectSecondNameInAddressDiv(String secondNameAddress) {
-        addressLastNameField.sendKeys(secondNameAddress);
-    }
-
-    public void selectCompany(String companyName) {
-        companyField.sendKeys(companyName);
-    }
-
-    public void selectAddress1(String address1) {
-        addressField.sendKeys(address1);
-    }
-
-    public void selectAddress2(String address2) {
-        address2Field.sendKeys(address2);
-    }
-
-    public void selectCity(String cityName) {
-        cityField.sendKeys(cityName);
-    }
-
-    public void selectState(String userState) {
-        Select stateName = new Select(state);
-        stateName.selectByValue(String.valueOf(userState));
-    }
-
-    public void selectZipCode(String zip) {
-        zipCodeField.sendKeys(zip);
-    }
-
-    public void setAdditoinalInfo(String info) {
-        additionalInfoField.sendKeys(info);
-    }
-
-    public void selectHomePhone(String homePhoneNumber) {
-        homePhoneField.sendKeys(homePhoneNumber);
-    }
-
-    public void selectMobilePhone(String mobilePhoneNumber) {
-        mobilephoneField.sendKeys(mobilePhoneNumber);
-    }
-
-    public void selectAlias(String aliasAddress) {
-        aliasAddressField.sendKeys(aliasAddress);
-    }
-
-    public void acceptRegistration() {
-        regButton.click();
-    }
-
-    public String getWrongData(){
-        return wrongData.getTitle();
-    }
-
-
-    public void registrationOfAccount(UserData userData, AccountData accountData, AddressessData addressessData){
-        selectGender()    ;
-        selectFirstName(userData.getFirstName());
-        selectSecondName(userData.getLastName());
-        selectPass(accountData.getPassword());
-        selectFirstNameInAddressDiv(userData.getFirstName());
-        selectSecondNameInAddressDiv(userData.getLastName());
-        selectCompany(addressessData.getCompany());
-
-        selectAddress1(addressessData.getAddress1());
-        selectAddress2(addressessData.getAddress2());
-        selectCity(addressessData.getCity());
-        selectState(addressessData.getState());
-        selectZipCode(addressessData.getZipCode());
-        selectHomePhone(addressessData.getHomePhone());
-        selectMobilePhone(addressessData.getMobilePhone());
-        selectAlias(addressessData.getAlias());
-        acceptRegistration();
-    }
 
 
 }
+
+    }
+
+
+

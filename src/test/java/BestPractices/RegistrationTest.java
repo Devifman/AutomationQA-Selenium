@@ -1,6 +1,7 @@
 package BestPractices;
 
 import BestPractices.Models.AccountData;
+import BestPractices.Models.UserData;
 import BestPractices.Pages.CreateAnAccountPage;
 import BestPractices.Pages.RegPage;
 import org.openqa.selenium.WebDriver;
@@ -30,11 +31,11 @@ public class RegistrationTest extends  BaseTest {
 
 
     @Test(dataProvider= "RegistrationData")
-    public void checkInfoTest(AccountData accountData){
+    public void checkInfoTest(UserData accountData){
        createAnAccountPage = PageFactory.initElements(driver,CreateAnAccountPage.class);
        regPage = PageFactory.initElements(driver,RegPage.class);
        createAnAccountPage.startOfRegistration(accountData);
-       regPage.registrationOfAccount(accountData);
+       regPage.registrationOfAccount(userdata);
         Assert.assertEquals(">My account",regPage.getWrongData());
     }
 

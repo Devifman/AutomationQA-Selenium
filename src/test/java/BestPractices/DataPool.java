@@ -14,7 +14,7 @@ public class DataPool<T> {
 
     public void processDataFile( String filePath,Class<T> tClass ){
 
-        accounts = new ArrayList<T>();
+        accounts = new ArrayList<>();
 
         ObjectMapper om = new ObjectMapper();
         try {

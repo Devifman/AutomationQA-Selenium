@@ -1,7 +1,7 @@
 package BestPractices;
 
 import BestPractices.Models.AccountData;
-import BestPractices.Pages.AddressesPage;
+import BestPractices.Pages.Addresses.AddressesPage;
 import BestPractices.Pages.CreateAnAccountPage;
 import BestPractices.Pages.RegPage;
 import BestPractices.Pages.UserAccount;
