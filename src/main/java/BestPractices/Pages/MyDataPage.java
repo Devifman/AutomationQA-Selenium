@@ -1,17 +1,14 @@
 package BestPractices.Pages;
 
 import BestPractices.Models.AccountData;
+import BestPractices.Models.AddressessData;
 import BestPractices.Models.UserData;
-import BestPractices.Util.Config;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Data;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.logging.Logger;
+import java.util.ArrayList;
 
 @Data
 
@@ -28,38 +25,70 @@ public class MyDataPage extends RegPage {
     @FindBy(xpath = "//*[@id=\"old_passwd\"]")
     private WebElement acceptPass;
 
-    @FindBy (xpath = "/html/body/div[1]/div[2]/div/div[3]/div/div/form/fieldset/div[11]/button/span")
+    @FindBy (xpath = "\"//span[contains(text(),'Save')]")
     private WebElement save;
 
 
-    @FindBy(xpath = "/html/body/div[1]/div[2]/div/div[3]/div/div/p")
+    @FindBy(xpath = "//p[@class='alert alert-success']")
     private WebElement successUpdate;
 
 
-//    public void saveUpdates(){
-//        save.click();
-//    }
-//
-//    public boolean genderEquals(AccountData accountData){
-//        return (this.getGenderTitle().getAttribute("someValue")).contentEquals(accountData.getGender());
-//    }
-//
-//    public boolean nameEquals(AccountData accountData){
-//        return (this.getFirstNameField().getAttribute("someValue")).contentEquals(accountData.getFirstName());
-//    }
-//
-//    public boolean secondNameEquals(AccountData accountData){
-//        return (this.getLastNameField().getAttribute("someValue")).contentEquals(accountData.getLastName());
-//    }
-//
-//    public boolean changeInformation(AccountData accountData) throws IOException {
-//        ObjectMapper om = new ObjectMapper();
-//        UserData account = om.readValue(new File(Config.getJS()),UserData.class);
-//        this.getFirstNameField().sendKeys(account.getFirstName());
-//        this.getLastNameField().sendKeys(account.getLastName());
-//        //acceptPass.sendKeys(account.getPassword());
-//        saveUpdates();
-//return successUpdate.isDisplayed();
-//
-//    }
+    public String getSuccessUpdate(){
+        return successUpdate.getText();
+    }
+    public UserData getInformationAboutUser(){
+
+        return new UserData(
+                verifyGenderOfUser(),
+                getAttribute(getFirstNameAddress()),
+                getAttribute(getLastNameAddress()),
+                getAttribute(getDay()),
+                getAttribute(getMonth()),
+                getAttribute(getYear())
+
+        );
+    }
+    public AccountData getEmailOfUser(){
+
+        return AccountData.accountDataBuilder(getAttribute(getEmail())).password("").userData(getInformationAboutUser()).addresses(new ArrayList<AddressessData>()).build();
+    }
+
+    public String verifyGenderOfUser(){
+        if(getGenderMale().isSelected()){
+            return getAttribute(getGenderMale());
+        }
+        else
+            return getAttribute(getGenderFemale());
+    }
+
+
+
+    public boolean verifyEmail(AccountData accountData){
+        return accountData.compareTo(getEmailOfUser()) == 0;
+    }
+
+    public boolean verifyOfFields(AccountData accountData){
+        return accountData.getUserData().compareTo(getInformationAboutUser()) == 0;
+    }
+
+    public void changeInformationOfUser(AccountData previousData, AccountData accountData){
+        accountData.getUserData().getGender();
+        fillForm(getFirstNameAddress(), accountData.getUserData().getFirstName());
+        fillForm(getLastNameAddress(), accountData.getUserData().getLastName());
+        fillForm(getEmail(), accountData.getEmail());
+        fillForm(acceptPass, accountData.getPassword());
+        valueOfSelect(getDay(), accountData.getUserData().getDate());
+        valueOfSelect(getMonth(), accountData.getUserData().getMonth());
+        valueOfSelect(getYear(), accountData.getUserData().getYear());
+    }
+    public void saveNewData(){
+        save.click();
+    }
+
+
+
+
 }
+
+
+

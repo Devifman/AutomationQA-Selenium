@@ -20,7 +20,10 @@ public class RegPage extends BasePage {
     List<WebElement> userErrors;
 
     @FindBy(xpath = "//input[@id='id_gender1']")
-    private WebElement gender;
+    private WebElement genderMale;
+
+    @FindBy(xpath = "//input[@id='id_gender2']")
+    private WebElement genderFemale;
 
     @FindBy(xpath = "//input[@id='customer_firstname']")
     private WebElement firstName;
@@ -90,7 +93,8 @@ public class RegPage extends BasePage {
     private WebElement wrongData;
 
     public void fillPageElementsList(){
-        elements.add(gender);
+        elements.add(genderMale);
+        elements.add(genderFemale);
         elements.add(firstName);
         elements.add(lastName);
         elements.add(email);
@@ -118,7 +122,7 @@ accountData.getUserData().getGender();
 fillForm(firstName,accountData.getUserData().getFirstName());
 fillForm(lastName,accountData.getUserData().getLastName());
 fillForm(email,accountData.getEmail());
-fillForm(lastName,accountData.getEmail());
+fillForm(password,accountData.getPassword());
 valueOfSelect(day,accountData.getUserData().getDate());
 valueOfSelect(month,accountData.getUserData().getMonth());
 valueOfSelect(year,accountData.getUserData().getYear());

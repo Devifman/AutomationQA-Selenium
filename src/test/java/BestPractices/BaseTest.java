@@ -1,6 +1,8 @@
 package BestPractices;
 
 import BestPractices.Models.AccountData;
+import BestPractices.Util.Config;
+import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -25,12 +27,13 @@ public class BaseTest {
 
     @BeforeClass
     public void beforeClassMethod(ITestContext testContext) {
-        dataPool = new DataPool();
+
         HashMap<String,String> param = new HashMap<String, String>(testContext.getCurrentXmlTest().getAllParameters());
         dataPool.processDataFile( param.get("dataFile"), AccountData.class);
         System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\drivers\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.get("http://automationpractice.com/index.php?controller=authentication&back=my-account");
+        //PropertyConfigurator.configure(Config.getLog());
         LOGGER.info("Beginning of the test");
     }
 

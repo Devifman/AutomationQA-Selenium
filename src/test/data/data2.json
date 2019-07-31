@@ -1,15 +1,21 @@
 {
-  "AnotherFirsName": "Robert",
-  "AnotherLastName": "Lance",
-  "email": "PeteJohn@mail.by",
   "password": "12345",
-  "AnotherCompany": "BoogaBoo",
-  "AnotherAddress1": "22 st.",
-  "AnotherAddress2": "house 5, app 13",
-  "AnotherCity": "Milton",
-  "AnotherState": "2",
-  "AnotherZipCode": "00001",
-  "AnotherHomePhone": "321555212",
-  "AnotherMobilePhone": "89092154257",
-  "AnotherAlias": "hishome"
+  "userData": {
+    "gender": "1",
+    "firstName": "Robert",
+    "lastName": "Lance",
+    "email": "PeteJohn@mail.by",
+
+  },
+  "addresses":{
+    "company": "BoogaBoo",
+    "address1": "22 st.",
+    "address2": "house 5, app 13",
+    "city": "Milton",
+    "state": "2",
+    "zipCode": "00001",
+    "homePhone": "321555212",
+    "mobilePhone": "89092154257",
+    "alias": "hishome"
+  }
 }

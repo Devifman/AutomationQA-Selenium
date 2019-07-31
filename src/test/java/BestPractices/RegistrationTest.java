@@ -17,11 +17,12 @@ public class RegistrationTest extends  BaseTest {
     private RegPage regPage;
 
     @BeforeClass
-    protected void beforeSuite(ITestContext testContext){
+    protected void beforeSuite( ITestContext testContext ){
         dataPool = new DataPool<>("dataFile",testContext,AccountData.class);
         createAnAccountPage = PageFactory.initElements(driver,CreateAnAccountPage.class);
         regPage = PageFactory.initElements(driver,RegPage.class);
     }
+
     @DataProvider(name = "RegistrationData")
     public Object[][] dataProviderNewUser(){
         return dataPool.getData();
@@ -31,11 +32,10 @@ public class RegistrationTest extends  BaseTest {
 
 
     @Test(dataProvider= "RegistrationData")
-    public void checkInfoTest(UserData accountData){
-       createAnAccountPage = PageFactory.initElements(driver,CreateAnAccountPage.class);
-       regPage = PageFactory.initElements(driver,RegPage.class);
-       createAnAccountPage.startOfRegistration(accountData);
-       regPage.registrationOfAccount(userdata);
+    public void checkInfoTest(AccountData accountData){
+ createAnAccountPage.acceptAnEmail(accountData.getEmail());
+ createAnAccountPage.CreateAnAccount();
+ regPage.CreateOfAccount(accountData);
         Assert.assertEquals(">My account",regPage.getWrongData());
     }
 

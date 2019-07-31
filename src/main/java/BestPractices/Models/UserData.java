@@ -17,6 +17,15 @@ public class UserData implements Comparable<UserData> {
     private String year;
 
 
+    public UserData(String gender, String firstName, String lastName, String date, String month, String year) {
+        this.gender = gender;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.date = date;
+        this.month = month;
+        this.year = year;
+    }
+
     @Override
     public int compareTo(UserData object){
         int i = gender.compareTo(object.gender);
