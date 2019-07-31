@@ -28,8 +28,6 @@ public class BaseTest {
     @BeforeClass
     public void beforeClassMethod(ITestContext testContext) {
 
-        HashMap<String,String> param = new HashMap<String, String>(testContext.getCurrentXmlTest().getAllParameters());
-        dataPool.processDataFile( param.get("dataFile"), AccountData.class);
         System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\drivers\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.get("http://automationpractice.com/index.php?controller=authentication&back=my-account");

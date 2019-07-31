@@ -1,22 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="Simple test suite">
+<<suite name="Edit test suite">
+
+<test name="Edit" verbose="2">
     <parameter name="dataFile" value="src/test/data/data.json"/>
+    <parameter name="secondDataFile" value="src/test/data2.json"/>
+    <classes>
 
+        <class name="BestPractices.ChangeInfoTest">
+            <methods>
+                <include name="changeUserDataTest" />
+            </methods>
+        </class>
 
-    <test name="Information Edit" verbose="2">
-        <parameter name="JSon data" value="src/test/data/data2.json"/>
-        <classes>
-            <class name="BestPractices.RegistrationTest">
-                <methods>
-                    <include name="RegistrationData" />
-                </methods>
-            </class>
+        <class name="BestPractices.AddressesChangeTest">
 
-        </classes>
-    </test>
+            <methods>
+                <include name="addOfNewAddressTest" />
+            </methods>
+        </class>
+
+        <class name="BestPractices.Pages.Addresses.UpdateOfAddress">
+
+            <methods>
+                <include name="updateUserAddressesTest" />
+            </methods>
+        </class>
+
+    </classes>
+</test>
 
 </suite>
-
 
 

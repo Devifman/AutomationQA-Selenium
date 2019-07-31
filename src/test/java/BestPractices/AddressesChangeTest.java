@@ -47,7 +47,7 @@ public class AddressesChangeTest extends BaseTest {
         userAccount.addressClick();
         addNewAddress.addNewAddress(accountData);
 
-        Assert.assertTrue(addressesPage);
+        Assert.assertTrue(addressesPage.verifyAddOfAddresses(accountData));
 
     }
 }

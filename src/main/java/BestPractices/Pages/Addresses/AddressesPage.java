@@ -60,8 +60,8 @@ public class AddressesPage extends RegPage {
             fillForm(getHomePhone(), accountData.getAddresses().get(i).getHomePhone());
             fillForm(getMobilePhone(), accountData.getAddresses().get(i).getMobilePhone());
             fillForm(getAlias(), accountData.getAddresses().get(i).getAlias());
-            //UpdateOfAddress updateOfAddress = PageFactory.initElements(driver, AddressesPage.class);
-            //UpdateOfAddress.clickSave();
+            UpdateOfAddress updateOfAddress = PageFactory.initElements(driver, UpdateOfAddress.class);
+            updateOfAddress.clickSave();
         }
     }
 

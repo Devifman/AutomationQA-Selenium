@@ -30,11 +30,14 @@ public class UpdateOfAddress extends RegPage {
 
     }
 
-    private ArrayList<String> aliasArray = new ArrayList<>();
+    private ArrayList<String> arrayOfAlies = new ArrayList<>();
 
-    public void addArrayOfAlies(AccountData accountData) {
+    public void setArrayOfAlies(AccountData accountData) {
         for (int i = 0; i < accountData.getAddresses().size(); i++) {
-            aliasArray.add(accountData.getAddresses().get(i).getAlias());
+            arrayOfAlies.add(accountData.getAddresses().get(i).getAlias());
         }
+    }
+    public void clickSave() {
+        saveButton.click();
     }
 }

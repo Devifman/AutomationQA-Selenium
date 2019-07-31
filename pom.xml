@@ -4,6 +4,34 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M3</version>
+                <configuration>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>src/test/resources/test-suites/negative-test.xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/resources/test-suites/Registration-suite.xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/resources/test-suites/test-suite - editInfo.xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/resources/test-suites/Verification.xml</suiteXmlFile>
+                    </suiteXmlFiles>
+
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
     <groupId>Sperasoft</groupId>
     <artifactId>qaautomation</artifactId>
     <version>1.0-SNAPSHOT</version>
@@ -50,6 +78,12 @@
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <version>2.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>3.0.0-M3</version>
         </dependency>
     </dependencies>
 
