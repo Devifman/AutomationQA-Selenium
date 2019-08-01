@@ -11,7 +11,7 @@
             <class name="BestPractices.NegativeDataTest">
 
                 <methods>
-                    <include name="wrongDataFillTest" />
+                    <include name="negativePersonalInfoTest" />
                 </methods>
             </class>
 

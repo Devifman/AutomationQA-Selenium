@@ -9,21 +9,21 @@
 
         <class name="BestPractices.ChangeInfoTest">
             <methods>
-                <include name="changeUserDataTest" />
+                <include name="ChangeDataOfUserTest" />
             </methods>
         </class>
 
         <class name="BestPractices.AddressesChangeTest">
 
             <methods>
-                <include name="addOfNewAddressTest" />
+                <include name="addNewAddressesTest" />
             </methods>
         </class>
 
         <class name="BestPractices.Pages.Addresses.UpdateOfAddress">
 
             <methods>
-                <include name="updateUserAddressesTest" />
+                <include name="updateAddressOfUser" />
             </methods>
         </class>
 

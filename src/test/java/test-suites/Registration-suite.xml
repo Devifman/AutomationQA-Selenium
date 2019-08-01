@@ -9,7 +9,7 @@
         <classes>
             <class name="BestPractices.RegistrationTest">
                 <methods>
-                    <include name="RegistrationOfDataTest" />
+                    <include name="checkInfoTest" />
                 </methods>
             </class>
 

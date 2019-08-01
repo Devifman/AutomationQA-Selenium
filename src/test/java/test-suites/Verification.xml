@@ -9,13 +9,13 @@
 
             <class name="BestPractices.DataVerifTest">
                 <methods>
-                    <include name="VerificationUserData" />
+                    <include name="DataVerificationTesting" />
                 </methods>
             </class>
 
             <class name="BestPractices.AddressVerifTest">
                 <methods>
-                    <include name="VerificationAddresOfUser" />
+                    <include name="DataVerificationTesting" />
                 </methods>
             </class>
 
