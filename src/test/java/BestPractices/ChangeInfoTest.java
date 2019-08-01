@@ -29,12 +29,12 @@ public class ChangeInfoTest extends BaseTest{
         myDataPage = PageFactory.initElements(driver,MyDataPage.class);
 
     }
-    @DataProvider(name = "changeInfo")
-    public Object[][] dataProviderNewUser() {
+    @DataProvider(name = "DataEdit")
+    public Object[][] dataProviderUser() {
         return dataPool.getData();
     }
 
-    @Test(dataProvider = "changeInfo")
+    @Test(dataProvider = "DataEdit")
     public void ChangeDataOfUserTest(AccountData accountData, AccountData accountData2){
         createAnAccountPage.acceptAnEmail(accountData.getEmail());
         createAnAccountPage.CreateAnAccount();

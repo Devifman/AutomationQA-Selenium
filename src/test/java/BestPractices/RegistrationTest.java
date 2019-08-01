@@ -23,15 +23,15 @@ public class RegistrationTest extends  BaseTest {
         regPage = PageFactory.initElements(driver,RegPage.class);
     }
 
-    @DataProvider(name = "RegistrationData")
-    public Object[][] dataProviderNewUser(){
+    @DataProvider(name = "DataEdit")
+    public Object[][] dataProviderUser(){
         return dataPool.getData();
     }
 
 
 
 
-    @Test(dataProvider= "RegistrationData")
+    @Test(dataProvider= "DataEdit")
     public void checkInfoTest(AccountData accountData){
  createAnAccountPage.acceptAnEmail(accountData.getEmail());
  createAnAccountPage.CreateAnAccount();

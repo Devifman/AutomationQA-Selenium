@@ -21,12 +21,12 @@ public class NegativeDataTest extends BaseTest {
         regPage = PageFactory.initElements(driver, RegPage.class);
 
     }
-    @DataProvider(name = "userInformation")
-    public Object[][] dataProviderNewUser() {
+    @DataProvider(name = "DataEdit")
+    public Object[][] dataProviderUser() {
         return dataPool.getData();
     }
 
-    @Test(dataProvider = "userInformation")
+    @Test(dataProvider = "DataEdit")
     public void negativePersonalInfoTest(AccountData accountData, AccountData badData){
         createAnAccountPage.acceptAnEmail(accountData.getEmail());
         createAnAccountPage.CreateAnAccount();

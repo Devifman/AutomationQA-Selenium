@@ -28,11 +28,11 @@ public class DataVerifTest extends BaseTest {
 
     }
 
-    @DataProvider(name = "verificationData")
+    @DataProvider(name = "DataEdit")
     public Object[] [] dataProviderUser(){
         return dataPool.getData();
     }
-    @Test(dataProvider = "verificationData")
+    @Test(dataProvider = "DataEdit")
     void DataVerificationTesting(AccountData accountData){
         createAnAccountPage.acceptAnEmail(accountData.getEmail());
         createAnAccountPage.CreateAnAccount();

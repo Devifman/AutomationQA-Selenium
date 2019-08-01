@@ -34,12 +34,12 @@ public class AddressesChangeTest extends BaseTest {
         addNewAddress = PageFactory.initElements(driver, AddNewAddress.class);
     }
 
-    @DataProvider(name = "addressesChange")
-    public Object[][] dataProviderNewUser() {
+    @DataProvider(name = "DataEdit")
+    public Object[][] dataProviderUser() {
         return dataPool.getData();
 
     }
-    @Test(dataProvider = "addressesChange")
+    @Test(dataProvider = "DataEdit")
     public void addNewAddressesTest(AccountData accountData){
         createAnAccountPage.acceptAnEmail(accountData.getEmail());
         createAnAccountPage.CreateAnAccount();

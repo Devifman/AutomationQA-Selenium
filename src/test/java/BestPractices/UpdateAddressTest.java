@@ -35,11 +35,11 @@ public class UpdateAddressTest extends BaseTest {
 
     }
 
-    @DataProvider(name = "userInformation")
-    public Object[][] dataProviderNewUser() {
+    @DataProvider(name = "DataEdit")
+    public Object[][] dataProviderUser() {
         return dataPool.getData();
     }
-    @Test(dataProvider = "userInformation")
+    @Test(dataProvider = "DataEdit")
     public void updateAddressOfUser(AccountData accountData, AccountData accountData2){
         createAnAccountPage.acceptAnEmail(accountData.getEmail());
         createAnAccountPage.CreateAnAccount();
