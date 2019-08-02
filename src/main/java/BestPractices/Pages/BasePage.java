@@ -40,7 +40,7 @@ public class BasePage {
 
     public void selectTextable(WebElement webElement, String text){
         Select droplist = new Select(webElement);
-        webElement.click();
+        //webElement.click();
         droplist.selectByVisibleText(String.valueOf(text));
     }
 
@@ -52,7 +52,7 @@ public class BasePage {
 
     public void valueOfSelect(WebElement webElement, String value){
         Select dropList = new Select(webElement);
-        webElement.click();
+        //webElement.click();
         dropList.selectByValue(String.valueOf(value));
     }
 

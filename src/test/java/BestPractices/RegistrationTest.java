@@ -36,7 +36,7 @@ public class RegistrationTest extends  BaseTest {
  createAnAccountPage.acceptAnEmail(accountData.getEmail());
  createAnAccountPage.CreateAnAccount();
  regPage.CreateOfAccount(accountData);
-        Assert.assertEquals(">My account",regPage.getWrongData());
+        Assert.assertEquals("My account - My Store", regPage.getTitle());
     }
 
 }

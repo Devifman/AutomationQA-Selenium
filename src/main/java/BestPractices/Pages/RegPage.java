@@ -132,10 +132,11 @@ fillForm(adress2,accountData.getAddresses().get(0).getAddress2());
 fillForm(city,accountData.getAddresses().get(0).getCity());
 selectTextable(state,accountData.getAddresses().get(0).getState());
 fillForm(zipCode,accountData.getAddresses().get(0).getZipCode());
-fillForm(country,accountData.getAddresses().get(0).getCountry());
-fillForm(additionalInformation,accountData.getAddresses().get(0).getInfo());
+selectTextable(country,accountData.getAddresses().get(0).getCountry());
+//fillForm(additionalInformation,accountData.getAddresses().get(0).getInfo());
 fillForm(homePhone,accountData.getAddresses().get(0).getHomePhone());
 fillForm(mobilePhone,accountData.getAddresses().get(0).getMobilePhone());
+fillForm(alias,accountData.getAddresses().get(0).getAlias());
 regButton.click();
 
 

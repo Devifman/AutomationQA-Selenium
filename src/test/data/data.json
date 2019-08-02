@@ -8,7 +8,10 @@
     "month": "1",
     "year": "1997"
   },
-  "addresses": {
+
+  "addresses":
+  [
+    {
     "addressFirstName": "Peter",
     "addressLastName": "Woods",
     "company": "Gogle",
@@ -22,4 +25,5 @@
     "mobilePhone": "8685560",
     "alias": "Home"
   }
-}
+  ]
+ }

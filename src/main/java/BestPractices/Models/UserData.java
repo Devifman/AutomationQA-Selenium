@@ -1,12 +1,15 @@
 package BestPractices.Models;
 
 import BestPractices.Pages.MyDataPage;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.apache.log4j.Logger;
 
 @Data
-
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserData implements Comparable<UserData> {
     static final Logger LOGGER = Logger.getLogger(MyDataPage.class);
     private String gender;
@@ -17,14 +20,14 @@ public class UserData implements Comparable<UserData> {
     private String year;
 
 
-    public UserData(String gender, String firstName, String lastName, String date, String month, String year) {
+    /*public UserData(String gender, String firstName, String lastName, String date, String month, String year) {
         this.gender = gender;
         this.firstName = firstName;
         this.lastName = lastName;
         this.date = date;
         this.month = month;
         this.year = year;
-    }
+    }*/
 
     @Override
     public int compareTo(UserData object){

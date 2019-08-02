@@ -4,12 +4,14 @@ import BestPractices.Pages.MyDataPage;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
 @Builder(builderMethodName = "constructorBuild")
 @Data
 @AllArgsConstructor
+
 public class AccountData implements Comparable<AccountData> {
     private String password;
     private String email;
